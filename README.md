@@ -11,8 +11,8 @@ Simple uber-like application created with Swift.
 ### General Info:
 This project is focuses the ability to build a sample app for demo purposes based on given specs and an API.
 The general approach was to conform to MVC design pattern and remove the story board component to use NSLayoutConstraints
-to build the user interface. The root controller is a tableview of rides grouped in days and information on a specific trip and estimated time
-and cost of the rides.
+to build the user interface. The root controller is a tableview of rides grouped in their respective days and information retrieved from response will display
+a specific trip, cost, estimated trip time, and determine how many rideers and booster seats will be available.
 
 ### Screen shots:
 <p align="middle">
