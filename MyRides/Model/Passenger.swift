@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Passenger: Codable {
+struct Passenger: Decodable {
     let id: Int
     var boosterSeat: Bool
-    var firstName: String
+    let firstName: String
 }

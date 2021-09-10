@@ -31,14 +31,28 @@ class MyRidesCell: UITableViewCell {
         return ride.orderedWaypoints.enumerated().map { "\($0 + 1). " + $1.location.address }.joined(separator: "\n")
     }
     
+    private func getTotalPassengers(for ride: Ride) -> Int {
+        return ride.orderedWaypoints.map { $0.passengers }.count
+    }
+    
+    private func getNumberOfBoosters(for ride: Ride) -> Int {
+        var boosterSeats = 0
+        ride.orderedWaypoints.flatMap { $0.passengers }.forEach { passenger in
+            if passenger.boosterSeat { boosterSeats += 1 }
+        }
+        return boosterSeats
+    }
+    
     func set(ride: Ride) {
-        let isPlural = (ride.orderedWaypoints.first!.passengers.count > 1 ) ? RidesConstants.riders : RidesConstants.rider
-        let hasBoosterSeat = ride.orderedWaypoints.first!.passengers.first!.boosterSeat ? "\(RidesConstants.booster))" : ")"
+        let totalPassengers = getTotalPassengers(for: ride)
+        let numberOfBoosters = getNumberOfBoosters(for: ride)
+        let isPlural = (totalPassengers > 1 ) ? RidesConstants.riders : RidesConstants.rider
+        let hasBoosterSeat = (numberOfBoosters > 0) ? "• \(numberOfBoosters) booster)" : ")"
         let addresses = mapAddresses(ride: ride)
         
         startTimeLabel.text          = ride.startsAt.convertDateFormat(to: .time)
         endTimeLabel.text            = "- " + ride.endsAt.convertDateFormat(to: .time)
-        numberOfPassengersLabel.text = "(\(ride.orderedWaypoints.first!.passengers.count) " + "\(isPlural)\(hasBoosterSeat)"
+        numberOfPassengersLabel.text = "(\(totalPassengers) " + "\(isPlural)\(hasBoosterSeat)"
         estLabel.text                = RidesConstants.est
         
         amountLabel.text             = "$" + ride.estimatedEarningsCents.convertToDollar()
