@@ -45,14 +45,14 @@ class MyRidesCell: UITableViewCell {
     
     func set(ride: Ride) {
         let totalPassengers = getTotalPassengers(for: ride)
-        let numberOfBoosters = getNumberOfBoosters(for: ride)
+        let totalBoosters = getNumberOfBoosters(for: ride)
         let isPlural = (totalPassengers > 1 ) ? RidesConstants.riders : RidesConstants.rider
-        let hasBoosterSeat = (numberOfBoosters > 0) ? "• \(numberOfBoosters) booster)" : ")"
+        let pluralizeBooster = totalBoosters.pluralizeBoosterNum()
         let addresses = mapAddresses(ride: ride)
         
         startTimeLabel.text          = ride.startsAt.convertDateFormat(to: .time)
         endTimeLabel.text            = "- " + ride.endsAt.convertDateFormat(to: .time)
-        numberOfPassengersLabel.text = "(\(totalPassengers) " + "\(isPlural)\(hasBoosterSeat)"
+        numberOfPassengersLabel.text = "(\(totalPassengers) " + "\(isPlural)\(pluralizeBooster)"
         estLabel.text                = RidesConstants.est
         
         amountLabel.text             = "$" + ride.estimatedEarningsCents.convertToDollar()
