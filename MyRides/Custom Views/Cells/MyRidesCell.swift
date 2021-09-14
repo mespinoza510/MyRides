@@ -36,11 +36,7 @@ class MyRidesCell: UITableViewCell {
     }
     
     private func getNumberOfBoosters(for ride: Ride) -> Int {
-        var boosterSeats = 0
-        ride.orderedWaypoints.flatMap { $0.passengers }.forEach { passenger in
-            if passenger.boosterSeat { boosterSeats += 1 }
-        }
-        return boosterSeats
+        return ride.orderedWaypoints.flatMap { $0.passengers }.filter { $0.boosterSeat }.count
     }
     
     func set(ride: Ride) {
