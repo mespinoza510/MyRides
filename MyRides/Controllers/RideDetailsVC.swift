@@ -126,17 +126,22 @@ class RideDetailsVC: UIViewController {
     
     func addAnnotations() {
         let pickupMarker = MKPointAnnotation()
+        pickupMarker.coordinate.latitude = ride.orderedWaypoints.first!.location.lat
+        pickupMarker.coordinate.longitude = ride.orderedWaypoints.first!.location.lng
         pickupMarker.title = RidesConstants.pickup
-        pickupMarker.coordinate = CLLocationCoordinate2D(latitude: ride.orderedWaypoints.first!.location.lat,
-                                                        longitude: ride.orderedWaypoints.first!.location.lng)
+        pickupMarker.coordinate = CLLocationCoordinate2D(latitude: pickupMarker.coordinate.latitude,
+                                                         longitude: pickupMarker.coordinate.longitude)
         let dropoffMarker = MKPointAnnotation()
         dropoffMarker.title = RidesConstants.dropoff
-        dropoffMarker.coordinate = CLLocationCoordinate2D(latitude: ride.orderedWaypoints.last!.location.lat,
-                                                      longitude: ride.orderedWaypoints.last!.location.lng)
+        dropoffMarker.coordinate.latitude = ride.orderedWaypoints.last!.location.lat
+        dropoffMarker.coordinate.longitude = ride.orderedWaypoints.last!.location.lng
+        dropoffMarker.coordinate = CLLocationCoordinate2D(latitude: dropoffMarker.coordinate.latitude,
+                                                          longitude: dropoffMarker.coordinate.longitude)
         
         mapView.addAnnotations([pickupMarker, dropoffMarker])
         
-        let region = MKCoordinateRegion(center: pickupMarker.coordinate, latitudinalMeters: 50000, longitudinalMeters: 50000)
+        let middleLocation = pickupMarker.coordinate.middleLocationWith(location: dropoffMarker.coordinate)
+        let region = MKCoordinateRegion(center: middleLocation, span: MKCoordinateSpan(latitudeDelta: 0.19, longitudeDelta: 0.19))
         mapView.setRegion(region, animated: true)
     }
     

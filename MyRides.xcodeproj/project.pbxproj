@@ -30,6 +30,7 @@
 		769338A026E44476009FD6F7 /* RidesCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693389F26E44474009FD6F7 /* RidesCapsuleView.swift */; };
 		769338A326E499E5009FD6F7 /* AddressListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769338A226E499E4009FD6F7 /* AddressListVC.swift */; };
 		769338A626E49E0A009FD6F7 /* LineSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769338A526E49E0A009FD6F7 /* LineSeparatorView.swift */; };
+		769338B226F290FC009FD6F7 /* CLLocationCoordinate2D+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769338B126F290F6009FD6F7 /* CLLocationCoordinate2D+Ext.swift */; };
 		76997FA026D8688900ABF447 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76997F9F26D8688900ABF447 /* Date+Ext.swift */; };
 		76997FA326D86AF500ABF447 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76997FA226D86AF500ABF447 /* String+Ext.swift */; };
 		76997FA626D86F8A00ABF447 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76997FA526D86F8A00ABF447 /* Constants.swift */; };
@@ -66,6 +67,7 @@
 		7693389F26E44474009FD6F7 /* RidesCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidesCapsuleView.swift; sourceTree = "<group>"; };
 		769338A226E499E4009FD6F7 /* AddressListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListVC.swift; sourceTree = "<group>"; };
 		769338A526E49E0A009FD6F7 /* LineSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSeparatorView.swift; sourceTree = "<group>"; };
+		769338B126F290F6009FD6F7 /* CLLocationCoordinate2D+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Ext.swift"; sourceTree = "<group>"; };
 		76997F9F26D8688900ABF447 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		76997FA226D86AF500ABF447 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		76997FA526D86F8A00ABF447 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				76997F9F26D8688900ABF447 /* Date+Ext.swift */,
 				76997FA226D86AF500ABF447 /* String+Ext.swift */,
 				76997FBD26DB789600ABF447 /* Int+Ext.swift */,
+				769338B126F290F6009FD6F7 /* CLLocationCoordinate2D+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			files = (
 				7648513626CB11CC00299455 /* RidesBodyLabel.swift in Sources */,
 				7648514426CB21F300299455 /* UIViewController+Ext.swift in Sources */,
+				769338B226F290FC009FD6F7 /* CLLocationCoordinate2D+Ext.swift in Sources */,
 				76997FAF26DA106200ABF447 /* MyRidesVC.swift in Sources */,
 				764850C226C7793800299455 /* RidesError.swift in Sources */,
 				7693389726E1F79B009FD6F7 /* Trip.swift in Sources */,
