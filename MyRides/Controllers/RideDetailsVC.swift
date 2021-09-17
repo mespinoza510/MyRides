@@ -8,18 +8,18 @@
 import UIKit
 import MapKit
 
-class RideDetailsVC: UIViewController {
+final class RideDetailsVC: UIViewController {
     
-    let headerView = UIView()
-    let addressView = UIView()
-    let contentView = UIView()
-    let seriesTripLabel = UILabel()
-    let cancelButton = UIButton()
+    private let headerView = UIView()
+    private let addressView = UIView()
+    private let contentView = UIView()
+    private let seriesTripLabel = UILabel()
+    private let cancelButton = UIButton()
     
-    var mapView: MKMapView!
-    var locationManager: CLLocationManager!
-    var ride: Ride!
-    var trip: Trip!
+    private var mapView: MKMapView!
+    private var locationManager: CLLocationManager!
+    private var ride: Ride!
+    private var trip: Trip!
     
     init(ride: Ride) {
         super.init(nibName: nil, bundle: nil)
@@ -46,7 +46,7 @@ class RideDetailsVC: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    func configureContentView() {
+    private func configureContentView() {
         view.addSubview(contentView)
 
         contentView.pinToEdges(of: view)
@@ -58,13 +58,13 @@ class RideDetailsVC: UIViewController {
         ])
     }
     
-    func configureViewController() {
+    private func configureViewController() {
         view.backgroundColor = .systemBackground
         title = RidesConstants.rideDetailsTitle
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    func layoutUI() {
+    private func layoutUI() {
         let mapViewHeight: CGFloat = view.layer.bounds.height / 3 - 20
         let halfScreenWidth: CGFloat = view.layer.bounds.width / 2
         
@@ -124,7 +124,7 @@ class RideDetailsVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    func addAnnotations() {
+    private func addAnnotations() {
         let pickupMarker = MKPointAnnotation()
         pickupMarker.coordinate.latitude = ride.orderedWaypoints.first!.location.lat
         pickupMarker.coordinate.longitude = ride.orderedWaypoints.first!.location.lng
@@ -145,12 +145,12 @@ class RideDetailsVC: UIViewController {
         mapView.setRegion(region, animated: true)
     }
     
-    func configureUIElements(with ride: Ride) {
+    private func configureUIElements(with ride: Ride) {
         self.add(childVC: RidesDetailHeaderView(ride: ride), to: self.headerView)
         self.add(childVC: AddressListVC(ride: ride), to: self.addressView)
     }
     
-    func add(childVC: UIViewController, to containerView: UIView) {
+    private func add(childVC: UIViewController, to containerView: UIView) {
         addChild(childVC)
         containerView.addSubview(childVC.view)
         childVC.view.frame = view.bounds

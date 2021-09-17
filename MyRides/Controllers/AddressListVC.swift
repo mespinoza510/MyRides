@@ -16,8 +16,8 @@ class AddressListVC: UIViewController {
     let dropoffImageView = UIImageView()
     let pickupLabel = RidesTitleLabel(textAlignment: .left, fontSize: 12, weight: .bold)
     let dropoffLabel = RidesTitleLabel(textAlignment: .left, fontSize: 12, weight: .bold)
-    var pickupAddressLabel = RidesTitleLabel(textAlignment: .left, fontSize: 14, weight: .light)
-    var dropoffAddressLabel = RidesTitleLabel(textAlignment: .left, fontSize: 14, weight: .light)
+    let pickupAddressLabel = RidesTitleLabel(textAlignment: .left, fontSize: 14, weight: .light)
+    let dropoffAddressLabel = RidesTitleLabel(textAlignment: .left, fontSize: 14, weight: .light)
     let tripInfoLabel = RidesTitleLabel(textAlignment: .left, fontSize: 12, weight: .light)
     
     var ride: Ride!

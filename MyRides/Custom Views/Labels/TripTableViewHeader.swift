@@ -11,11 +11,11 @@ class TripTableViewHeader: UITableViewHeaderFooterView {
     
     static let tripHeaderID = "TripHeader"
     
-    var dateLabel = RidesTitleLabel(textAlignment: .left, fontSize: 16, weight: .bold)
-    var startTimeLabel = RidesTitleLabel(textAlignment: .left, fontSize: 12, weight: .bold)
-    var endTimeLabel = RidesTitleLabel(textAlignment: .left, fontSize: 12, weight: .regular)
-    var estimatedCostLabel = RidesTitleLabel(textAlignment: .center, fontSize: 14, weight: .regular)
-    var amountLabel = RidesSecondaryTitleLabel(fontSize: 16)
+    let dateLabel = RidesTitleLabel(textAlignment: .left, fontSize: 16, weight: .bold)
+    let startTimeLabel = RidesTitleLabel(textAlignment: .left, fontSize: 12, weight: .bold)
+    let endTimeLabel = RidesTitleLabel(textAlignment: .left, fontSize: 12, weight: .regular)
+    let estimatedCostLabel = RidesTitleLabel(textAlignment: .center, fontSize: 14, weight: .regular)
+    let amountLabel = RidesSecondaryTitleLabel(fontSize: 16)
 
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
