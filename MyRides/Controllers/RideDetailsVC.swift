@@ -129,14 +129,11 @@ final class RideDetailsVC: UIViewController {
         pickupMarker.coordinate.latitude = ride.orderedWaypoints.first!.location.lat
         pickupMarker.coordinate.longitude = ride.orderedWaypoints.first!.location.lng
         pickupMarker.title = RidesConstants.pickup
-        pickupMarker.coordinate = CLLocationCoordinate2D(latitude: pickupMarker.coordinate.latitude,
-                                                         longitude: pickupMarker.coordinate.longitude)
+        
         let dropoffMarker = MKPointAnnotation()
         dropoffMarker.title = RidesConstants.dropoff
         dropoffMarker.coordinate.latitude = ride.orderedWaypoints.last!.location.lat
         dropoffMarker.coordinate.longitude = ride.orderedWaypoints.last!.location.lng
-        dropoffMarker.coordinate = CLLocationCoordinate2D(latitude: dropoffMarker.coordinate.latitude,
-                                                          longitude: dropoffMarker.coordinate.longitude)
         
         mapView.addAnnotations([pickupMarker, dropoffMarker])
         
