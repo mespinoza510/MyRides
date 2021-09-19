@@ -19,7 +19,7 @@ final class RideDetailsVC: UIViewController {
     private var mapView: MKMapView!
     private var locationManager: CLLocationManager!
     private var ride: Ride!
-    private var trip: Trip!
+    private var trip: RideSchedule!
     
     init(ride: Ride) {
         super.init(nibName: nil, bundle: nil)

@@ -13,7 +13,7 @@ class MyRidesVC: UIViewController {
     
     let tableView = UITableView(frame: .zero, style: .grouped)
     var rides: [Ride] = []
-    var trips: [Trip] = []
+    var rideSchedules: [RideSchedule] = []
     
     var isSameDate = false
     var ridesByDate: [String] = []
@@ -74,19 +74,19 @@ class MyRidesVC: UIViewController {
     
     func updateUI(with rides: [Ride]) {
         
-        var trips = [Trip]()
+        var rideSchedules = [RideSchedule]()
         
         // Group rides according to day
         rides.forEach { ride in
-            if let index = trips.firstIndex(where: { trip in
+            if let index = rideSchedules.firstIndex(where: { trip in
                 trip.date.isSameDay(as: ride.startsAt)
             }) {
-                trips[index].rides.append(ride)
+                rideSchedules[index].rides.append(ride)
             } else {
-                trips.append(.init(ride: ride))
+                rideSchedules.append(.init(ride: ride))
             }
         }
-        self.trips = trips
+        self.rideSchedules = rideSchedules
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -98,12 +98,12 @@ class MyRidesVC: UIViewController {
 
 extension MyRidesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trips[section].rides.count
+        return rideSchedules[section].rides.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MyRidesCell.reuseID) as! MyRidesCell
-        let ride = trips[indexPath.section].rides[indexPath.row]
+        let ride = rideSchedules[indexPath.section].rides[indexPath.row]
         
         cell.set(ride: ride)
         
@@ -111,7 +111,7 @@ extension MyRidesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let ride = trips[indexPath.section].rides[indexPath.row]
+        let ride = rideSchedules[indexPath.section].rides[indexPath.row]
         let destinationVC = RideDetailsVC(ride: ride)
         
         navigationController?.pushViewController(destinationVC, animated: true)
@@ -119,7 +119,7 @@ extension MyRidesVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TripTableViewHeader.tripHeaderID) as! TripTableViewHeader
-        headerView.set(trip: trips[section])
+        headerView.set(trip: rideSchedules[section])
         
         headerView.layer.borderWidth = 1
         headerView.layer.borderColor = UIColor.lightGray.cgColor
@@ -139,7 +139,7 @@ extension MyRidesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return trips.count
+        return rideSchedules.count
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

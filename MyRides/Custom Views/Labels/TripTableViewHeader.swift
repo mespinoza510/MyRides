@@ -26,7 +26,7 @@ class TripTableViewHeader: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(trip: Trip) {
+    func set(trip: RideSchedule) {
         dateLabel.text          = trip.date.convertDateFormat(to: .monthAndDay) + "  •"
         dateLabel.textColor     = MyRidesColor.ridesColor
         startTimeLabel.text     = trip.startsAt?.convertDateFormat(to: .time)

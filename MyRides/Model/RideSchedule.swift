@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Trip {
+struct RideSchedule {
     var rides: [Ride]
     let date: Date
     
@@ -17,7 +17,7 @@ struct Trip {
     }
 }
 
-extension Trip {
+extension RideSchedule {
     
     var estimatedEarningsCents: Int {
         var price = 0
