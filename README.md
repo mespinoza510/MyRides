@@ -16,8 +16,8 @@ a specific trip, cost, estimated trip time, and determine how many rideers and b
 
 ### Screen shots:
 <p align="middle">
-<img src="https://user-images.githubusercontent.com/39013177/132300249-11f62efa-d767-4b84-be26-df5100587ac7.png" width=300 height=700 hspace=50/>
-<img src="https://user-images.githubusercontent.com/39013177/132301391-5f512576-4e40-417e-9393-20ef790e3141.png" width=300 height=700 hspace=50/>
+<img src="https://user-images.githubusercontent.com/39013177/133920841-a07d3c3b-502f-4c25-b198-dcd373032a77.png" width=300 height=700 hspace=50/>
+<img src="https://user-images.githubusercontent.com/39013177/133920877-d4f8948d-7502-464f-9eb7-b9f14ab96ba6.png" width=300 height=700 hspace=50/>
 </p>
 
 ***
