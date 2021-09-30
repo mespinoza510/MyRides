@@ -15,8 +15,6 @@ class MyRidesVC: UIViewController {
     var rides: [Ride] = []
     var rideSchedules: [RideSchedule] = []
     
-    var isSameDate = false
-    var ridesByDate: [String] = []
     var sectionIndex: Int!
     
     override func viewDidLoad() {
